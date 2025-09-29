@@ -188,7 +188,7 @@ export function AdminDashboard() {
                 <DollarSign className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">${totalRevenue.toFixed(2)}</div>
+                <div className="text-2xl font-bold">${Number(totalRevenue ?? 0).toFixed(2)}</div>
                 <p className="text-xs text-muted-foreground">All time</p>
               </CardContent>
             </Card>
@@ -254,7 +254,7 @@ export function AdminDashboard() {
                             <span className="text-sm text-muted-foreground">{getClientCompany(order.clientId)}</span>
                           </div>
                           <div className="text-sm text-muted-foreground">
-                            {order.items.map((item) => item.itemName).join(", ")} • ${order.totalAmount.toFixed(2)} •{" "}
+                            {order.items.map((item) => item.itemName).join(", ")} • ${Number(order.totalAmount ?? 0).toFixed(2)} •{" "}
                             {order.orderDate}
                           </div>
                         </div>
@@ -371,7 +371,7 @@ export function AdminDashboard() {
                             <div className="space-y-1">
                               <div className="font-medium">{item.name}</div>
                               <div className="text-sm text-muted-foreground">
-                                Stock: {item.stockQuantity} • Price: ${item.unitPrice.toFixed(2)} • MOQ: {item.moq}
+                                Stock: {item.stockQuantity ?? 0} • Price: ${Number(item.unitPrice ?? 0).toFixed(2)} • MOQ: {item.moq ?? 0}
                               </div>
                             </div>
                             <Button onClick={() => startEditing(item)} variant="outline" size="sm">
@@ -411,7 +411,7 @@ export function AdminDashboard() {
                             </div>
                           </div>
                           <div className="text-right">
-                            <div className="font-medium">${clientRevenue.toFixed(2)}</div>
+                            <div className="font-medium">${Number(clientRevenue ?? 0).toFixed(2)}</div>
                             <div className="text-sm text-muted-foreground">{clientOrders.length} orders</div>
                           </div>
                         </div>
