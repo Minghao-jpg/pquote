@@ -1,10 +1,10 @@
+"use client"
+
 const money = (n: number | null | undefined) =>
   new Intl.NumberFormat('en-CA', { style: 'currency', currency: 'CAD', minimumFractionDigits: 2 })
     .format(Number(n ?? 0));
 
 const int = (n: number | null | undefined) => Number(n ?? 0);
-
-"use client"
 
 import { useState, useEffect } from "react"
 import { mockInventory, mockClients, type Order, type InventoryItem, type Client } from "@/lib/data"
